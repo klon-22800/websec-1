@@ -1,0 +1,137 @@
+* {
+    color: #ff0000;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.calculator {
+    margin: 20px;
+    min-width: 50%;
+    max-width: 600px;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    grid-auto-rows: minmax(50px, auto);
+    gap: 30px;
+
+    background-color: #baffc2;
+    border-radius: 10px;
+    min-height: 260px;
+    container-type: inline-size;
+}
+
+#calculate {
+    grid-column: 1 / 4;
+    width: 30%;
+    min-width: 130px;
+    justify-self: center;
+    font-size: 130%;
+}
+
+#results {
+    grid-column: 1 / 4;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 120%;
+    padding: 10px;
+
+}
+
+.calculator > .grid-elem {
+    border-radius: 16px;
+    border: 2px dashed #ff0000;
+    background: transparent;
+}
+
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#operation {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+
+    text-align: center;
+    font-size: 130%;
+    font-weight: bold;
+
+    padding-right: 40px;
+    outline: none;
+}
+
+.select-wrapper::after {
+    content: "∨";
+    position: absolute;
+    right: 12px;
+    font-size: 20px;
+    pointer-events: none;
+    font-weight: bold;
+
+}
+
+.grid-elem input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: inherit;
+    text-align: left;
+    padding-left: 5%;
+    font-size: 120%;
+}
+
+input.error {
+    background-color: #f7cccc;
+    border-radius: 16px;
+
+}
+
+.error-message {
+    font-size: 12px;
+    height: 14px;
+}
+
+.history-item {
+    opacity: 0.5;
+}
+
+.current-result {
+    opacity: 1;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .calculator {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .select-wrapper{
+        width: 30%;
+        justify-self: center;
+    }
+
+     #calculate {
+        width: 50%;
+        grid-column: auto;
+    }
+    #results {
+        grid-column: auto;
+    }
+}
